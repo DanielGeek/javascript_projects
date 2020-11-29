@@ -1,5 +1,5 @@
 import { saludar } from './js/componentes';
 
-const nombre = 'Daniel';
+const nombre = 'Daniel Ángel';
 
 saludar(nombre);
