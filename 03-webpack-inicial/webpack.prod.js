@@ -12,7 +12,7 @@ module.exports = {
         minimizer: [new OptimizeCssAssetsPlugin()]
     },
     output: {
-        filename: 'main.[contenthash].js'
+        filename: 'main.[contentHash].js'
     },
     module: {
         rules: [
@@ -44,7 +44,7 @@ module.exports = {
                 options: {
                     attributes: false,
                     minimize: false
-                }
+                },
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
@@ -52,11 +52,12 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            esModule: false
+                            emitFile: true,
+                            esModule: false,
+                            name: 'assets/[name].[ext]'
                         }
                     }
                 ]
-
             }
         ]
     },
@@ -66,15 +67,16 @@ module.exports = {
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
+            filename: '[name].[contentHash].css',
             ignoreOrder: false
-        }),
-        new CopyPlugin({
-            patterns: [
-                { from: 'src/assets', to: 'assets/' }
-            ]
         }),
         new MinifyPlugin(),
         new CleanWebpackPlugin(),
+
+        new CopyPlugin([
+            { from: 'src/assets', to: 'assets/' },
+        ]),
     ]
+
 }
+

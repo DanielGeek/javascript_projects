@@ -32,7 +32,7 @@ module.exports = {
                 options: {
                     attributes: false,
                     minimize: false
-                }
+                },
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
@@ -40,11 +40,11 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            esModule: false
+                            esModule: false,
+                            name: 'assets/[name].[ext]'
                         }
                     }
                 ]
-
             }
         ]
     },
@@ -57,10 +57,10 @@ module.exports = {
             filename: '[name].css',
             ignoreOrder: false
         }),
-        new CopyPlugin({
-            patterns: [
-                { from: 'src/assets', to: 'assets/' }
-            ]
-        })
+        new CopyPlugin([
+            { from: 'src/assets', to: 'assets/' },
+        ]),
     ]
+
 }
+
