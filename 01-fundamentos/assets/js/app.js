@@ -1,5 +1,9 @@
 // console.log(console.log('Hola Mundo'));
 
+
+console.log(miNuevoNombre);
+
+
 let a = 10,
 	b = {
 		nombre: 'Daniel',
@@ -16,10 +20,12 @@ let a = 10,
 x = a + e;
 
 // console.log('%c Mis variables', 'color:blue; font-weight: bold');
+c = 'Hola de nuevo';
+// console.log({ a });
+// console.log({ b });
+// console.log({ c });
+// console.log({ d });
+// console.log({ e });
+// console.table({ a, b, c, d, e, x });
 
-console.log({ a });
-console.log({ b });
-console.log({ c });
-console.log({ d });
-console.log({ e });
-console.table({ a, b, c, d, e, x });
+let miNuevoNombre = 'Daniel Angel';
