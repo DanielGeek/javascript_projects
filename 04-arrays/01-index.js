@@ -23,7 +23,7 @@ const place = {
   }
 }
 
-const { coords: { lat }, coords: { lng } } = place;
+const { coords: { lat, lng } } = place;
 lat;
 lng;
 
