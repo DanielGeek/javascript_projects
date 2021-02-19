@@ -35,7 +35,13 @@ module.exports = {
   plugins: [
     // crea el html con los js y css
     new HtmlWebpackPlugin({
-      title: 'Plugins webpack'
+      title: 'Plugins webpack',
+      // toma el html original y crea el nuevo en dist/
+      template: path.resolve(__dirname, 'index.html'),
+      // minifica el html
+      minify: {
+        collapseWhitespace: true
+      }
     }),
     // crea los archivos css
     new MiniCSSExtractPlugin({
