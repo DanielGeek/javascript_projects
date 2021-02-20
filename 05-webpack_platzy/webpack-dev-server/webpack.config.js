@@ -1,6 +1,7 @@
 const path = require('path')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
   entry: {
@@ -13,6 +14,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/bundle-[name].js'
   },
+  devServer: {
+    // recarga inteligente solo recarga los archivos que sufren cambios
+    hot: true,
+    open: true,
+    port: 9000
+  },
   module: {
     rules: [
       {
@@ -21,11 +28,11 @@ module.exports = {
         // Si tuviéramos 5 loaders en el array, webpack los ejecutará en el orden de 5, 4, 3, 2 y 1
         use: [
           // style-loader => Sirve para **inyectar **el css a mi html
-          // 'style-loader',
-          {
-            // extrae el css
-            loader: MiniCSSExtractPlugin.loader
-          },
+          'style-loader',
+          // {
+          //   // extrae el css
+          //   loader: MiniCSSExtractPlugin.loader
+          // },
           // css-loader => Sirve para **interpretar **el código css.
           'css-loader'
         ]
@@ -33,6 +40,8 @@ module.exports = {
     ]
   },
   plugins: [
+    // refleja los cambios en tiempo real de solo los archivos que sufren cambios
+    new webpack.HotModuleReplacementPlugin(),
     // crea el html con los js y css
     new HtmlWebpackPlugin({
       title: 'Plugins webpack',
@@ -44,8 +53,8 @@ module.exports = {
       }
     }),
     // crea los archivos css
-    new MiniCSSExtractPlugin({
-      filename: 'css/[name].css'
-    })
+    // new MiniCSSExtractPlugin({
+    //   filename: 'css/[name].css'
+    // })
   ]
 }
