@@ -1,5 +1,9 @@
 {
   // preconfiguraciones de babel
+  "plugins": [
+    // jala el core del runtime para dar soporte a las nuevas funciones de js
+    "@babel/plugin-transform-runtime"
+  ],
   "presets": [
     "@babel/preset-env"
   ]

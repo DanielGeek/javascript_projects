@@ -1,4 +1,4 @@
-function text() {
+const text = () => {
   document.body.innerHTML = '<p>Hola mundo desde webpack</p>'
 }
 

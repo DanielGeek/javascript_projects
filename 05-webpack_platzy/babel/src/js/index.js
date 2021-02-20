@@ -1,12 +1,14 @@
 import '../css/index.css'
 import '../css/index2.css'
+import search from './search'
+import render from './render'
 
-import text from './text'
+const id = prompt('Quien es ese pokemon')
 
-text()
-// si cambia el metodo text ejecuta nuevamente el metodo y muestra el cambio sin recargar el navegagor por completo
-if(module.hot) {
-  module.hot.accept('./text.js', function() {
-    text()
+search(id)
+  .then((data) =>{
+    render(data)
   })
-}
+  .catch(() => {
+    console.log(`No se encontro el pokemon ${id}`)
+  })
