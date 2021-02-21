@@ -26,4 +26,5 @@ console.log(canEdit2)
 const speed = 240
 const message = speed > 180
   ? 'Demasiado Rápido'
-  : (speed >= 110 ? 'Rápido' : 'Normal')
+  : speed >= 110 ? 'Rápido' : 'Normal'
+console.log(message)
