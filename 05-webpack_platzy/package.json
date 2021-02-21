@@ -11,7 +11,8 @@
     "build:css": "webpack --config ./css-style-loader/webpack.config.js",
     "build:plugins": "webpack --config ./plugins/webpack.config.js",
     "build:dev": "webpack serve --config ./webpack-dev-server/webpack.config.js",
-    "build:babel": "webpack serve --config ./babel/webpack.config.js"
+    "build:babel": "webpack serve --config ./babel/webpack.config.js",
+    "build:react": "webpack serve --config ./react/webpack.config.js"
   },
   "keywords": [
     "webpack"
@@ -22,6 +23,7 @@
     "@babel/core": "7.12.17",
     "@babel/plugin-transform-runtime": "7.12.17",
     "@babel/preset-env": "7.12.17",
+    "@babel/preset-react": "7.12.13",
     "babel-loader": "8.2.2",
     "css-loader": "5.0.2",
     "html-webpack-plugin": "5.1.0",
@@ -32,6 +34,8 @@
     "webpack-dev-server": "3.11.2"
   },
   "dependencies": {
-    "@babel/runtime": "7.12.18"
+    "@babel/runtime": "7.12.18",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
   }
 }
