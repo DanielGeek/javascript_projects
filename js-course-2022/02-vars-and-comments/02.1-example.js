@@ -11,3 +11,14 @@ let d = 20;
 let x = a + b;
 
 console.log(x);
+console.log({x});
+console.warn(x);
+console.error(x);
+console.info(x);
+console.log('%c my var', 'color:blue; font-weight: bold');
+
+let saludo = 'Hello ';
+let nameCountry = 'España';
+console.table({ a, b, c, d, x, saludo, nameCountry });
+const saludar = saludo + nameCountry;
+console.log(saludar);
