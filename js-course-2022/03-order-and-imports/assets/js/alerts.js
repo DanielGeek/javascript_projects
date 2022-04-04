@@ -1,2 +1,2 @@
 
-console.log(myName)
+// console.log(myName)
