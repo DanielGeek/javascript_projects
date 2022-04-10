@@ -36,3 +36,26 @@
 `document.querySelector('header').innerText = 'Daniel Barreto';`
 `const titulo = document.querySelector('.titulo');`
 `titulo.innerText = 'Hola Mundo';`
+
+# segunda parte
+`const divBotones = document.querySelector('#divBotones');`
+`const botonNuevo = document.createElement('button');`
+# agregar al div el boton nuevo
+`divBotones.append(botonNuevo);`
+# agregar texto al boton
+`botonNuevo.innerText = 'nuevo boton';`
+# agregar clase al boton
+`botonNuevo.classList.add('btn');`
+`botonNuevo.classList.add('btn-success');`
+# crear elemento input
+`const input = document.createElement('input');`
+# agregar input al body del html
+`document.body.append(input);`
+
+# agregar clase al input
+`input.classList.add('form-control');`
+# agregar placeholder
+`input.placeholder = 'Hola Mundo';`
+
+
+
