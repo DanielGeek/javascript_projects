@@ -9,6 +9,14 @@ let deck = [];
 const tipos = ['C', 'D', 'H', 'S'];
 const especiales = ['A', 'J', 'Q', 'K'];
 
+let puntosJugador = 0,
+    puntosComputadora = 0;
+
+// Referencia del html
+const btnPedir = document.querySelector('#btnPedir');
+
+const puntosHTML = document.querySelectorAll('small');
+
 // Esta function crea un nuevo deck
 const crearDeck = () => {
 
@@ -24,10 +32,8 @@ const crearDeck = () => {
     }
   }
 
-  // console.log( deck );
   // ._shuffle devuelve un nuevo array ordenado aleatoriamente
   deck = _.shuffle( deck );
-  console.log( deck );
   return deck;
 }
 
@@ -42,41 +48,22 @@ const pedirCarta = () => {
 
   const carta = deck.pop();
 
-  console.log(deck);
-  console.log(carta); // carta debe de ser de la baraja
   return carta;
 }
-// 1 mostrar error si no existen cartas
-// deck = [];
-// 2 mostrar error si no existen cartas
-// for( let i = 0; i <= 100; i++ ) {
-//   pedirCarta();
-// }
 
-  // pedirCarta();
+const valorCarta = ( carta ) => {
 
-  const valorCarta = ( carta ) => {
+  const valor = carta.substring(0, carta.length - 1);
+  return ( isNaN( valor ) ) ?
+          ( valor === 'A' ) ? 11 : 10
+          : valor * 1;
+}
 
-    const valor = carta.substring(0, carta.length - 1);
-    return ( isNaN( valor ) ) ?
-            ( valor === 'A' ) ? 11 : 10
-            : valor * 1;
+// Events
+btnPedir.addEventListener('click', () => {
 
-    // let puntos = 0;
+  const carta = pedirCarta();
 
-    // lo mismo usando if else
-    // if( isNaN( valor )) {
-    //   // console.log('No es un número');
-    //   puntos = ( valor === 'A' ) ? 11 : 10;
-    // } else {
-    //   // console.log('Es un número');
-    //   // convertir el número string number
-    //   puntos = valor * 1;
-    // }
-
-    // console.log(puntos);
-
-  }
-
-  const valor = valorCarta(pedirCarta());
-  console.log({ valor });
+  puntosJugador = puntosJugador + valorCarta( carta );
+  puntosHTML[0].innerHTML = puntosJugador;
+})
