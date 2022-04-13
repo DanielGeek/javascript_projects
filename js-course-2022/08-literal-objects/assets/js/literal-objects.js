@@ -51,7 +51,7 @@ console.log( entriesPairs );
 
 console.log( character );
 
-// bloquear el objeto para que no puedan asignarsele mas atributos o cambiarles los actuales de la primera gerarquia
+// bloquear el objeto para que no puedan asignarsele mas atributos o cambiarles los actuales de la primera jerarquia
 Object.freeze( character );
 
 character.money = 1000000;
