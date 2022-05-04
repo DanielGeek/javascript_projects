@@ -147,10 +147,7 @@ const miModulo = (() => {
       btnPedir.disabled = true;
       btnDetener.disabled = true;
 
-      const carta = pedirCarta();
-    // acumlar puntos al jugador 0
-      const puntosJugador = acumularPuntos( carta, 0);
-      turnoComputadora( puntosJugador );
+      turnoComputadora( puntosJugadores[0] );
   });
 
   // btnNuevo.addEventListener('click', () => {
