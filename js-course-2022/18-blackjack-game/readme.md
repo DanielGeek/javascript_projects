@@ -57,5 +57,8 @@
 # agregar placeholder
 `input.placeholder = 'Hola Mundo';`
 
+# link to minify
+https://www.toptal.com/developers/javascript-minifier/
+
 
 
