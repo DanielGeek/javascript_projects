@@ -8,3 +8,5 @@
 `npm i -D webpack-dev-server`
 
 `npm i -D css-loader style-loader`
+
+`npm install --save-dev mini-css-extract-plugin`
