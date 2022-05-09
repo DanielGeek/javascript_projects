@@ -11,6 +11,7 @@
   "author": "Dangel Ángel",
   "license": "ISC",
   "devDependencies": {
+    "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "mini-css-extract-plugin": "^2.6.0",
