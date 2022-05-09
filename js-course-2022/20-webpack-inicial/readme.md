@@ -12,3 +12,5 @@
 `npm install --save-dev mini-css-extract-plugin`
 
 `npm install file-loader --save-dev`
+
+`npm install copy-webpack-plugin --save-dev`
