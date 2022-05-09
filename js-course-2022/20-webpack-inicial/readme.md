@@ -14,3 +14,5 @@
 `npm install file-loader --save-dev`
 
 `npm install copy-webpack-plugin --save-dev`
+
+`npm i -D css-minimizer-webpack-plugin terser-webpack-plugin`
