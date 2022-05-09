@@ -10,3 +10,5 @@
 `npm i -D css-loader style-loader`
 
 `npm install --save-dev mini-css-extract-plugin`
+
+`npm install file-loader --save-dev`
