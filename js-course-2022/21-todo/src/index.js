@@ -5,10 +5,17 @@ import { crearTodoHtml } from './js/componentes';
 
 export const todoList = new TodoList();
 
-const tarea = new Todo('Aprender Javascript');
-todoList.nuevoTodo( tarea );
+// const tarea = new Todo('Aprender Javascript');
+// todoList.nuevoTodo( tarea );
 
-console.log(todoList);
+// console.log(todoList);
+// crearTodoHtml( tarea );
 
+localStorage.setItem('my-key', 'ABC123');
+sessionStorage.setItem('my-key', 'ABC123');
 
-crearTodoHtml( tarea );
+// setTimeout(() => {
+
+//   localStorage.removeItem('my-key');
+
+// }, 1500);
