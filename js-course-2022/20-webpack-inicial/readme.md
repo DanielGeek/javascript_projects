@@ -16,3 +16,7 @@
 `npm install copy-webpack-plugin --save-dev`
 
 `npm i -D css-minimizer-webpack-plugin terser-webpack-plugin`
+
+`npm install --save-dev babel-loader @babel/core`
+
+`npm install @babel/preset-env --save-dev`
