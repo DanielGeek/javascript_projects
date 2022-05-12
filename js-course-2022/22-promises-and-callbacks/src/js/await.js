@@ -7,16 +7,21 @@ const heroesIds = [
 ];
 
 export const obtenerHeroesArr = async() => {
-
   return await Promise.all( heroesIds.map( buscarHeroe ) );
+};
 
-  // segunda option
-  // const heroesArr = [];
+export const obtenerHeroeAwait = async( id ) => {
 
-  // for( const id of heroesIds ) {
-  //   heroesArr.push( buscarHeroe( id ) );
-  // }
+  try {
 
-  // return await Promise.all(heroesArr);
+    const heroe = await buscarHeroeAsync( id );
+    return heroe;
 
+  } catch ( err ) {
+    console.log( 'CATCH!!!' );
+    return {
+      nombre: 'Sin nombre',
+      poder: 'Sin poder'
+    };
+  }
 };
