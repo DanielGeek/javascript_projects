@@ -3,9 +3,14 @@
 import * as CRUD from './js/crud-provider';
 
 
-CRUD.getUsuario( 2 ).then( console.log );
+// CRUD.getUsuario( 2 ).then( console.log );
 
-CRUD.crearUsuario({
-  name: 'Daniel',
-  job: 'Pintor'
+// CRUD.crearUsuario({
+//   name: 'Daniel',
+//   job: 'Pintor'
+// }).then( console.log );
+
+CRUD.actualizarUsuario(1, {
+  name: 'Jessica',
+  job: 'English Teacher'
 }).then( console.log );
