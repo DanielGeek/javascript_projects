@@ -23,3 +23,9 @@
 
 # api
 https://api.chucknorris.io/
+
+# upload images
+https://cloudinary.com/
+
+# test apis
+https://www.postman.com/
