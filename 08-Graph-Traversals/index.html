@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script
+			type="text/javascript"
+			src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"
+		></script>
+		<link
+			href="https://unpkg.com/vis-network/styles/vis-network.css"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<style type="text/css">
+			#mynetwork {
+				width: 600px;
+				height: 400px;
+				border: 1px solid lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mynetwork"></div>
+		<script type="text/javascript">
+			var nodes = new vis.DataSet();
+			var edges = new vis.DataSet();
+
+			function DFS(graph, start) {
+				var visited = new Set();
+				var stack = [start];
+
+				while (stack.length > 0) {
+					var vertex = stack.pop();
+
+					if (!visited.has(vertex)) {
+						visited.add(vertex);
+						nodes.add({ id: vertex, label: vertex });
+
+						for (var neighbor of graph[vertex]) {
+							stack.push(neighbor);
+							edges.add({ from: vertex, to: neighbor });
+						}
+					}
+				}
+			}
+
+			var graph = {
+				A: ['B', 'C'],
+				B: ['A', 'D', 'E'],
+				C: ['A', 'F'],
+				D: ['B'],
+				E: ['B', 'F'],
+				F: ['C', 'E'],
+			};
+
+			DFS(graph, 'A');
+
+			var container = document.getElementById('mynetwork');
+			var data = {
+				nodes: nodes,
+				edges: edges,
+			};
+			var options = {};
+			var network = new vis.Network(container, data, options);
+		</script>
+	</body>
+</html>
