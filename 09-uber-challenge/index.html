@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			#mynetwork {
+				width: 600px;
+				height: 400px;
+				border: 1px solid lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mynetwork"></div>
+		<script type="text/javascript">
+			function shortestDistance(wordsDict, word1, word2) {
+				let word1Index, word2Index;
+				let minDistance = Number.MAX_SAFE_INTEGER;
+
+				for (let i = 0; i < wordsDict.length; i++) {
+					if (wordsDict[i] === word1) {
+						word1Index = i;
+					}
+					if (wordsDict[i] === word2) {
+						word2Index = i;
+					}
+					if (word1Index !== undefined && word2Index !== undefined) {
+						minDistance = Math.min(
+							minDistance,
+							Math.abs(word1Index - word2Index)
+						);
+					}
+				}
+
+				return minDistance;
+			}
+
+            let wordsDict = ["practice", "makes", "perfect", "coding", "makes"]
+            console.log(shortestDistance(wordsDict, "coding", "practice")) // 3
+            console.log(shortestDistance(wordsDict, "makes", "coding")) // 1
+		</script>
+	</body>
+</html>

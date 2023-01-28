@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			#mynetwork {
+				width: 600px;
+				height: 400px;
+				border: 1px solid lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mynetwork"></div>
+		<script type="text/javascript">
+			class TreeNode {
+				constructor(val) {
+					this.val = val;
+					this.left = null;
+					this.right = null;
+				}
+			}
+
+			function pathSum(root, targetSum) {
+				let count = 0;
+				if (root === null) {
+					return count;
+				}
+
+				count += dfs(root, targetSum);
+				count += pathSum(root.left, targetSum);
+				count += pathSum(root.right, targetSum);
+
+				return count;
+			}
+
+			function dfs(node, targetSum) {
+				let count = 0;
+				if (node === null) {
+					return count;
+				}
+
+				if (node.val === targetSum) {
+					count++;
+				}
+
+				count += dfs(node.left, targetSum - node.val);
+				count += dfs(node.right, targetSum - node.val);
+
+				return count;
+			}
+			[10,5,-3,3,2,null,11,3,-2,null,1]
+			// Example usage
+			let root = new TreeNode(10);
+			root.left = new TreeNode(5);
+			root.right = new TreeNode(-3);
+			root.left.left = new TreeNode(3);
+			root.left.right = new TreeNode(2);
+			root.right.right = new TreeNode(11);
+			root.left.left.left = new TreeNode(3);
+			root.left.left.right = new TreeNode(-2);
+			root.left.right.right = new TreeNode(1);
+
+			console.log(pathSum(root, 8)); // should return 3
+		</script>
+	</body>
+</html>
