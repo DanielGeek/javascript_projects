@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			#mynetwork {
+				width: 600px;
+				height: 400px;
+				border: 1px solid lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mynetwork"></div>
+		<script type="text/javascript">
+			function maxDepth(root) {
+				if (root === null) {
+					return 0;
+				}
+
+				return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+			}
+
+			// Ejemplo
+			const root = {
+				val: 3,
+				left: {
+					val: 9,
+					left: null,
+					right: null,
+				},
+				right: {
+					val: 20,
+					left: {
+						val: 15,
+						left: null,
+						right: null,
+					},
+					right: {
+						val: 7,
+						left: null,
+						right: null,
+					},
+				},
+			};
+			console.log(maxDepth(root)); // Output: 3
+		</script>
+	</body>
+</html>

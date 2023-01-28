@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			#mynetwork {
+				width: 600px;
+				height: 400px;
+				border: 1px solid lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mynetwork"></div>
+		<script type="text/javascript">
+			/**
+			 * Definition for a binary tree node.
+			 * function TreeNode(val, left, right) {
+			 *     this.val = (val===undefined ? 0 : val)
+			 *     this.left = (left===undefined ? null : left)
+			 *     this.right = (right===undefined ? null : right)
+			 * }
+			 */
+			/**
+			 * @param {number[]} nums
+			 * @return {TreeNode}
+			 */
+			function sortedArrayToBST(nums) {
+				if (!nums.length) return null;
+				let mid = Math.floor(nums.length / 2);
+				let root = new TreeNode(nums[mid]);
+				root.left = sortedArrayToBST(nums.slice(0, mid));
+				root.right = sortedArrayToBST(nums.slice(mid + 1));
+				return root;
+			}
+
+			console.log(sortedArrayToBST([-10, -3, 0, 5, 9]));
+		</script>
+	</body>
+</html>

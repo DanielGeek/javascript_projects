@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			#mynetwork {
+				width: 600px;
+				height: 400px;
+				border: 1px solid lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mynetwork"></div>
+		<script type="text/javascript">
+			/**
+			 * Definition for a binary tree node.
+			 * function TreeNode(val, left, right) {
+			 *     this.val = (val===undefined ? 0 : val)
+			 *     this.left = (left===undefined ? null : left)
+			 *     this.right = (right===undefined ? null : right)
+			 * }
+			 */
+			/**
+			 * @param {TreeNode} root
+			 * @return {boolean}
+			 */
+			var isSymmetric = function (root) {
+				if (!root) return true;
+
+				function isMirror(t1, t2) {
+					if (!t1 && !t2) return true;
+					if (!t1 || !t2) return false;
+					return (
+						t1.val === t2.val &&
+						isMirror(t1.right, t2.left) &&
+						isMirror(t1.left, t2.right)
+					);
+				}
+
+				return isMirror(root.left, root.right);
+			};
+
+			console.log(isSymmetric([1, 2, 2, 3, 4, 4, 3])); // true
+			console.log(isSymmetric([1, 2, 2, null, 3, null, 3])); // false
+		</script>
+	</body>
+</html>

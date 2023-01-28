@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			#mynetwork {
+				width: 600px;
+				height: 400px;
+				border: 1px solid lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mynetwork"></div>
+		<script type="text/javascript">
+			/**
+			 * @param {number[]} arr
+			 * @return {number[]}
+			 */
+			function pancakeSort(arr) {
+				let result = [];
+				for (let i = arr.length - 1; i >= 0; i--) {
+					let maxIndex = findMax(arr, i);
+					if (maxIndex !== i) {
+						result.push(maxIndex + 1);
+						flip(arr, maxIndex);
+						result.push(i + 1);
+						flip(arr, i);
+					}
+				}
+				return result;
+			}
+
+			function findMax(arr, end) {
+				let max = Number.MIN_SAFE_INTEGER;
+				let maxIndex = -1;
+				for (let i = 0; i <= end; i++) {
+					if (arr[i] > max) {
+						max = arr[i];
+						maxIndex = i;
+					}
+				}
+				return maxIndex;
+			}
+
+			function flip(arr, k) {
+				let start = 0;
+				while (start < k) {
+					let temp = arr[start];
+					arr[start] = arr[k];
+					arr[k] = temp;
+					start++;
+					k--;
+				}
+			}
+		</script>
+	</body>
+</html>

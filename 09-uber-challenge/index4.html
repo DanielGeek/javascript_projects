@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			#mynetwork {
+				width: 600px;
+				height: 400px;
+				border: 1px solid lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mynetwork"></div>
+		<script type="text/javascript">
+			function findUnsortedSubarray(nums) {
+				let left = 0;
+				let right = -1;
+				let max = nums[0];
+				let min = nums[nums.length - 1];
+
+				for (let i = 0; i < nums.length; i++) {
+					max = Math.max(max, nums[i]);
+					min = Math.min(min, nums[nums.length - 1 - i]);
+
+					if (nums[i] < max) {
+						right = i;
+					}
+					if (nums[nums.length - 1 - i] > min) {
+						left = nums.length - 1 - i;
+					}
+				}
+
+				return right - left + 1;
+			}
+		</script>
+	</body>
+</html>

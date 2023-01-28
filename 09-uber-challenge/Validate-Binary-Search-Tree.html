@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			#mynetwork {
+				width: 600px;
+				height: 400px;
+				border: 1px solid lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mynetwork"></div>
+		<script type="text/javascript">
+			/**
+			 * Definition for a binary tree node.
+			 * function TreeNode(val, left, right) {
+			 *     this.val = (val===undefined ? 0 : val)
+			 *     this.left = (left===undefined ? null : left)
+			 *     this.right = (right===undefined ? null : right)
+			 * }
+			 */
+			/**
+			 * @param {TreeNode} root
+			 * @return {boolean}
+			 */
+
+			var isValidBST = function (root) {
+				if (!root) return true;
+				return helper(root, -Infinity, Infinity);
+			};
+
+			var helper = function (node, lower, upper) {
+				if (!node) return true;
+				if (node.val <= lower || node.val >= upper) return false;
+				return (
+					helper(node.left, lower, node.val) &&
+					helper(node.right, node.val, upper)
+				);
+			};
+
+			const root = { val: 2, left: { val: 1 }, right: { val: 3 } };
+			console.log(isValidBST(root)); // Output: true
+		</script>
+	</body>
+</html>
